@@ -2,16 +2,6 @@ from tkinter import *
 
 myWindow = Tk()
 
-x = 0
-y = 0
-l = 0
-c = 0
-result_labelx = Label(myWindow, text=f"abscisse : {x}")
-result_labely = Label(myWindow, text=f"ordonnée : {x}")
-result_ligne = Label(myWindow, text=f"ligne : {l}")
-result_colonne = Label(myWindow, text=f"colonne : {c}")
-grille = Canvas(myWindow, width=300, height=300)
-
 
 def create_grid():
     for i in range(0, 300, 20):
@@ -19,6 +9,20 @@ def create_grid():
 
     for i in range(0, 300, 20):
         grille.create_line([(0, i), (300, i)])
+
+
+x = 0
+y = 0
+l = 0
+c = 0
+
+result_labelx = Label(myWindow, text=f"abscisse : {x}")
+result_labely = Label(myWindow, text=f"ordonnée : {x}")
+result_ligne = Label(myWindow, text=f"ligne : {l}")
+result_colonne = Label(myWindow, text=f"colonne : {c}")
+boutonGrid = Button(myWindow, text="Tracer la grille", command=create_grid)
+
+grille = Canvas(myWindow, width=300, height=300)
 
 
 def get_coord(event):
@@ -32,7 +36,6 @@ def get_coord(event):
     result_colonne.config(text=f"colonne : {column}")
     result_ligne.config(text=f"ligne : {ligne}")
 
-boutonGrid = Button(myWindow, text="Tracer la grille", command=create_grid)
 
 boutonGrid.grid(row=0, column=1)
 result_labelx.grid(row=1, column=1)
